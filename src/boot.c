@@ -53,20 +53,17 @@
 #define ADDR_FLASH_SECTOR_10    ((uint32_t)0x080C0000) /* Base @ of Sector 10, 128 Kbytes */
 #define ADDR_FLASH_SECTOR_11    ((uint32_t)0x080E0000) /* Base @ of Sector 11, 128 Kbytes */
 
+/*
+Document from stm32f4xx_hal_flash_ex.h
+*/
 
-#define FLASH_Sector_0     ((uint16_t)0x0000) /*!< Sector Number 0 */
-#define FLASH_Sector_1     ((uint16_t)0x0008) /*!< Sector Number 1 */
-#define FLASH_Sector_2     ((uint16_t)0x0010) /*!< Sector Number 2 */
-#define FLASH_Sector_3     ((uint16_t)0x0018) /*!< Sector Number 3 */
-#define FLASH_Sector_4     ((uint16_t)0x0020) /*!< Sector Number 4 */
-#define FLASH_Sector_5     ((uint16_t)0x0028) /*!< Sector Number 5 */
-#define FLASH_Sector_6     ((uint16_t)0x0030) /*!< Sector Number 6 */
-#define FLASH_Sector_7     ((uint16_t)0x0038) /*!< Sector Number 7 */
-#define FLASH_Sector_8     ((uint16_t)0x0040) /*!< Sector Number 8 */
-#define FLASH_Sector_9     ((uint16_t)0x0048) /*!< Sector Number 9 */
-#define FLASH_Sector_10    ((uint16_t)0x0050) /*!< Sector Number 10 */
-#define FLASH_Sector_11    ((uint16_t)0x0058) /*!< Sector Number 11 */
-
+/* sector 0-7*/
+#define SECTOR0   0
+#define SECTOR1   1 //,2,3,4,5,6,7
+/*--------------------------------- STM32F401xE/STM32F411xE/STM32F446xx -------------------------------*/
+#if defined(STM32F401xE) || defined(STM32F411xE) || defined(STM32F446xx)
+#define FLASH_SECTOR_TOTAL  8
+#endif /* STM32F401xE || STM32F411xE || STM32F446xx */
 
 
 
