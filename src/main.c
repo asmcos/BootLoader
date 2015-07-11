@@ -30,10 +30,14 @@ int main(void)
     uart_init();
     gpio_init();
 
-	//printf("Wait uart data....\n");
 	boot();
 
 	printf("Not Found Uart data ...\nBootLoader is Sleep.......\n");
+	
+	//void (*startApp)() = (void(*)())(0x8004000); 
+    //startApp();
+
+
     while (1)
     {
         iter++;

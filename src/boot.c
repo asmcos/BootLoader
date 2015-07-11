@@ -123,12 +123,11 @@ void boot (void)
 {
 
   unsigned char currentCommand = 0;
-  int count = -1;  
+  int count = 0x8FF;  //about 4s  
   int status = 0;
 
   while (count != 0) {
-	   count --;
-      // flash led
+	  count --;
       int d = get_char();
 		
       if (d != -1) { // if we have data
