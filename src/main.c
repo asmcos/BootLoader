@@ -34,8 +34,8 @@ int main(void)
 
 	printf("Not Found Uart data ...\nBootLoader is Sleep.......\n");
 	
-	//void (*startApp)() = (void(*)())(0x8004000); 
-    //startApp();
+	void (*startApp)() = (void(*)())(0x8004000); 
+    startApp();
 
 
     while (1)
