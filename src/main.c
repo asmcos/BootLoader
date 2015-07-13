@@ -20,7 +20,11 @@ void Led_Display(int n)
 	}
 }
 
-
+__attribute__( ( always_inline ) ) static __INLINE void __jump_to( uint32_t addr )
+{
+  addr |= 0x00000001;  /* Last bit of jump address indicates whether destination is Thumb or ARM code */
+  __ASM volatile ("BX %0" : : "r" (addr) );
+}
 
 int main(void)
 {
@@ -32,11 +36,18 @@ int main(void)
 
 	boot();
 
-	printf("Not Found Uart data ...\nBootLoader is Sleep.......\n");
+	printf("Start APP...\r\n");
 	
-	void (*startApp)() = (void(*)())(0x8004000); 
-    startApp();
+    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);     
 
+    HAL_Delay(1000);
+	
+	unsigned int *ResetHandler = (unsigned int *)(0x8004004); 
+    void (*startPtr)() = *ResetHandler;
+    startPtr();
+
+
+	printf("APP Error??...\r\n"); 
 
     while (1)
     {

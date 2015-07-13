@@ -1,5 +1,7 @@
 STM32 BootLoader, document by http://www.st.com/st-web-ui/static/active/en/resource/technical/document/application_note/CD00167594.pdf
- 
+
+The instructions are detailed more fully here:
+http://leaflabs.com/docs/bootloader.html#flashing-a-custom-bootloader 
 
 Board: MiCOKit-3288 by: http://mico.io
   CPU: stm32f411 
